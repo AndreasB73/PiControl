@@ -12,7 +12,7 @@ class PiWebViewController: UIViewController {
 
     @IBOutlet weak var webView: UIWebView!
     
-    var url: URL? = nil
+    @objc var url: URL? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,7 +23,7 @@ class PiWebViewController: UIViewController {
         webView.loadRequest(URLRequest(url: url!))
     }
     
-    func setMyUrl(_ url: URL) {
+    @objc func setMyUrl(_ url: URL) {
         self.url = url
     }
 

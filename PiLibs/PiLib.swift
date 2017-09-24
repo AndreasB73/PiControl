@@ -10,24 +10,24 @@ import UIKit
 
 open class PiLib: NSObject {
     
-    open static func getCurrentRequest() -> URLRequest? {
+    @objc open static func getCurrentRequest() -> URLRequest? {
         let url = URL(string: "http://pi.bachmaier.cc/current.txt")
         return URLRequest(url: url!)
     }
     
-    open static func loadTempHourImage() -> UIImage? {
+    @objc open static func loadTempHourImage() -> UIImage? {
         return loadImage("http://pi.bachmaier.cc/temphour.png")
     }
     
-    open static func loadTempDayImage() -> UIImage? {
+    @objc open static func loadTempDayImage() -> UIImage? {
         return loadImage("http://pi.bachmaier.cc/tempday.png")
     }
     
-    open static func loadTempWeekImage() -> UIImage? {
+    @objc open static func loadTempWeekImage() -> UIImage? {
         return loadImage("http://pi.bachmaier.cc/tempweek.png")
     }
     
-    open static func getPiControlUrl() -> URL {
+    @objc open static func getPiControlUrl() -> URL {
         return URL(string: "picontrol://home")!
     }
     

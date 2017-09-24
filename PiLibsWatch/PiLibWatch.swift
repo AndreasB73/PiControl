@@ -33,7 +33,7 @@ open class PiLibWatch: NSObject {
     fileprivate static let tempKey = "Temperatur"
     fileprivate static let tempOldKey = "TemperaturOld"
     
-    open static func formatCurrentValue(_ current: NSString) -> NSAttributedString {
+    @objc open static func formatCurrentValue(_ current: NSString) -> NSAttributedString {
         var text: String
         
         self.oldTemp = self.currentTemp
@@ -54,14 +54,14 @@ open class PiLibWatch: NSObject {
         //let menloFont = UIFont(name: "Menlo", size: 24.0)!
         let menloFont = UIFont.systemFont(ofSize: 24)
 
-        let fontAttrs = [NSFontAttributeName : menloFont, NSForegroundColorAttributeName:UIColor.red]
+        let fontAttrs = [NSAttributedStringKey.font : menloFont, NSAttributedStringKey.foregroundColor:UIColor.red]
         
         let attrString = NSMutableAttributedString(string: text, attributes: fontAttrs)
         
         return attrString
     }
     
-    open static var currentTemp: NSString? {
+    @objc open static var currentTemp: NSString? {
         get {
             let defaults = UserDefaults.standard
             return defaults.string(forKey: tempKey) as NSString?
@@ -72,7 +72,7 @@ open class PiLibWatch: NSObject {
         }
     }
     
-    open static var oldTemp: NSString? {
+    @objc open static var oldTemp: NSString? {
         get {
             let defaults = UserDefaults.standard
             return defaults.string(forKey: tempOldKey) as NSString?

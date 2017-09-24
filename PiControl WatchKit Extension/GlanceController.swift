@@ -34,7 +34,7 @@ class GlanceController: WKInterfaceController {
         super.didDeactivate()
     }
     
-    func performGlanceUpdate() {
+    @objc func performGlanceUpdate() {
         showRoom()
         if let current = PiLibWatch.currentTemp {
             showTemp(current)
@@ -55,15 +55,15 @@ class GlanceController: WKInterfaceController {
         
     }
     
-    func showRoom() {
+    @objc func showRoom() {
         //let menloFont = UIFont(name: "Menlo", size: 20.0)!
         let menloFont = UIFont.systemFont(ofSize: 20)
-        let fontAttrs = [NSFontAttributeName : menloFont]
+        let fontAttrs = [NSAttributedStringKey.font : menloFont]
         let attrString = NSAttributedString(string: "Wohnzimmer", attributes: fontAttrs)
         self.deviceLabel.setAttributedText(attrString)
     }
     
-    func showTemp(_ current: NSString) {
+    @objc func showTemp(_ current: NSString) {
         let attrString = PiLibWatch.formatCurrentValue(current)
         self.tempLabel.setAttributedText(attrString)
     }

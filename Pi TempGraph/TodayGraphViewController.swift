@@ -13,10 +13,10 @@ import PiLibs
 class TodayGraphViewController: UIViewController, NCWidgetProviding {
         
     @IBOutlet weak var imageView: UIImageView!
-    var timer: Timer? = nil
+    @objc var timer: Timer? = nil
     
-    let timerUpdate: TimeInterval = 60
-    let space: CGFloat = 6
+    @objc let timerUpdate: TimeInterval = 60
+    @objc let space: CGFloat = 6
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +49,7 @@ class TodayGraphViewController: UIViewController, NCWidgetProviding {
         return UIEdgeInsets(top: space, left: space, bottom: space, right: space)
     }
     
-    func performWidgetUpdate() {
+    @objc func performWidgetUpdate() {
         if let image = PiLib.loadTempHourImage() {
             self.imageView.image = image
         }
@@ -66,7 +66,7 @@ class TodayGraphViewController: UIViewController, NCWidgetProviding {
         completionHandler(NCUpdateResult.newData)
     }
     
-    func launchApp(_ recognizer: UITapGestureRecognizer!) {
+    @objc func launchApp(_ recognizer: UITapGestureRecognizer!) {
         let url = PiLib.getPiControlUrl()
         self.extensionContext?.open(url, completionHandler: nil)
     }

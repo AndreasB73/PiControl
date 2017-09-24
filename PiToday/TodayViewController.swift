@@ -9,6 +9,7 @@
 import UIKit
 import NotificationCenter
 import PiLibs
+
 fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
   switch (lhs, rhs) {
   case let (l?, r?):
@@ -35,13 +36,13 @@ class TodayViewController: UIViewController, NCWidgetProviding {
     @IBOutlet weak var DeviceLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     
-    let tempKey = "Temperatur"
-    let tempOldKey = "TemperaturOld"
+    @objc let tempKey = "Temperatur"
+    @objc let tempOldKey = "TemperaturOld"
     
-    var timer: Timer? = nil
-    let timerUpdate: TimeInterval = 60
+    @objc var timer: Timer? = nil
+    @objc let timerUpdate: TimeInterval = 60
     
-    var currentTemp: NSString? {
+    @objc var currentTemp: NSString? {
         get {
             let defaults = UserDefaults.standard
             return defaults.string(forKey: tempKey) as NSString?
@@ -52,7 +53,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         }
     }
     
-    var oldTemp: NSString? {
+    @objc var oldTemp: NSString? {
         get {
             let defaults = UserDefaults.standard
             return defaults.string(forKey: tempOldKey) as NSString?
@@ -101,7 +102,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         return UIEdgeInsets(top: defaultMarginInsets.top, left: defaultMarginInsets.left, bottom: 0, right: defaultMarginInsets.right)
     }
     
-    func performWidgetUpdate() {
+    @objc func performWidgetUpdate() {
         if let request = PiLib.getCurrentRequest() {
             NSURLConnection.sendAsynchronousRequest(request, queue: OperationQueue.main) {
                 (response, data, error) in
@@ -136,7 +137,7 @@ class TodayViewController: UIViewController, NCWidgetProviding {
         completionHandler(NCUpdateResult.newData)
     }
     
-    func launchApp(_ recognizer: UITapGestureRecognizer!) {
+    @objc func launchApp(_ recognizer: UITapGestureRecognizer!) {
         let url = PiLib.getPiControlUrl()
         self.extensionContext?.open(url, completionHandler: nil)
     }
