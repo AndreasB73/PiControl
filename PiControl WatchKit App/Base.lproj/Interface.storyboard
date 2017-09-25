@@ -1,8 +1,12 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="URf-Ur-oQK">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="13196" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="URf-Ur-oQK">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="7701"/>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="13051"/>
     </dependencies>
     <scenes>
         <!--PiControl-->
@@ -27,36 +31,6 @@
                 </controller>
             </objects>
             <point key="canvasLocation" x="382" y="-35"/>
-        </scene>
-        <!--Glance Interface Controller-->
-        <scene sceneID="rjY-Ar-IMT">
-            <objects>
-                <glanceController spacing="0.0" id="Sv0-Ai-Zie" customClass="GlanceController" customModule="PiControl_WatchKit_App" customModuleProvider="target">
-                    <items>
-                        <group alignment="left" spacing="7" id="gv7-I2-MZq">
-                            <items>
-                                <label alignment="left" text=" " id="eyj-W2-anG"/>
-                                <imageView alignment="left" verticalAlignment="center" image="Icon-Small.png" id="eUm-LM-ia8"/>
-                            </items>
-                        </group>
-                        <group alignment="left" contentMode="scaleAspectFit" layout="vertical" id="eew-Gs-W6Y">
-                            <items>
-                                <label alignment="left" text="Raum" id="c6Z-BZ-OSI">
-                                    <fontDescription key="font" style="UICTFontTextStyleHeadline"/>
-                                </label>
-                                <label width="1" height="90" alignment="center" verticalAlignment="center" text="---" textAlignment="center" numberOfLines="2" id="dpp-jy-aBj"/>
-                            </items>
-                        </group>
-                    </items>
-                    <edgeInsets key="margins" left="0.0" right="0.0" top="0.0" bottom="14"/>
-                    <connections>
-                        <outlet property="detailGroup" destination="eew-Gs-W6Y" id="aWb-Gt-IFe"/>
-                        <outlet property="deviceLabel" destination="c6Z-BZ-OSI" id="Bnw-yo-Ahp"/>
-                        <outlet property="tempLabel" destination="dpp-jy-aBj" id="yp6-6O-DU3"/>
-                    </connections>
-                </glanceController>
-            </objects>
-            <point key="canvasLocation" x="387" y="342"/>
         </scene>
     </scenes>
 </document>
